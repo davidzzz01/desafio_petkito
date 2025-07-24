@@ -1,19 +1,22 @@
 <template>
-  <form @submit.prevent="addTask" class="mb-6 bg-white p-4 rounded shadow">
-    <div class="mb-2">
-      <label class="block mb-1">Título *</label>
-      <input v-model="title" class="w-full border px-2 py-1 rounded" required />
+  <form @submit.prevent="addTask" class="mb-6 bg-white p-6 rounded shadow-lg max-w-lg mx-auto">
+    <h2 class="text-xl font-bold mb-4">Adicionar Tarefa</h2>
+    <div class="mb-4">
+      <label class="block mb-1 font-semibold">Título *</label>
+      <input v-model="title" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
     </div>
-    <div class="mb-2">
-      <label class="block mb-1">Descrição</label>
-      <textarea v-model="description" class="w-full border px-2 py-1 rounded"></textarea>
+    <div class="mb-4">
+      <label class="block mb-1 font-semibold">Descrição</label>
+      <textarea v-model="description" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
     </div>
-    <div class="mb-2">
-      <label class="block mb-1">Data de Vencimento *</label>
-      <input v-model="due_date" type="date" class="w-full border px-2 py-1 rounded" required />
+    <div class="mb-4">
+      <label class="block mb-1 font-semibold">Data de Vencimento *</label>
+      <input v-model="due_date" type="date" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
     </div>
-    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Adicionar Tarefa</button>
-    <p v-if="error" class="text-red-500 mt-2">{{ error }}</p>
+    <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-semibold flex items-center justify-center">
+      <i class="fas fa-plus mr-2"></i>Adicionar Tarefa
+    </button>
+    <p v-if="error" class="text-red-500 mt-2 text-center">{{ error }}</p>
   </form>
 </template>
 
@@ -46,9 +49,11 @@ export default {
         this.error = ''
         this.$emit('task-added')
       } catch (e) {
-        this.error = 'Erro ao adicionar tarefa.'
+        this.error = (e.response && e.response.data && e.response.data.message)
+          ? e.response.data.message
+          : 'Erro ao adicionar tarefa.'
       }
     }
   }
 }
-</script> 
+</script>

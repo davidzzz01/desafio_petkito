@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between bg-white p-3 mb-2 rounded shadow">
     <div>
-      <h3 :class="{'line-through text-gray-400': task.completed}" class="font-bold">{{ task.title }}</h3>
+      <h3 :class="{ 'line-through text-gray-400': task.completed }" class="font-bold">{{ task.title }}</h3>
       <p class="text-sm text-gray-600">{{ task.description }}</p>
       <p class="text-xs text-gray-500">Vence em: {{ task.due_date }}</p>
     </div>
@@ -21,17 +21,26 @@
 
 <script>
 import api from '../services/api'
+
 export default {
   props: ['task'],
   methods: {
     async markAsCompleted() {
-      await api.put(`/tasks/${this.task.id}`, { completed: true })
-      this.$emit('task-updated')
+      try {
+        await api.put(`/tasks/${this.task.id}`, { completed: true })
+        this.$emit('task-updated')
+      } catch (e) {
+        console.error('Erro ao concluir tarefa', e)
+      }
     },
     async deleteTask() {
-      await api.delete(`/tasks/${this.task.id}`)
-      this.$emit('task-deleted')
+      try {
+        await api.delete(`/tasks/${this.task.id}`)
+        this.$emit('task-deleted')
+      } catch (e) {
+        console.error('Erro ao excluir tarefa', e)
+      }
     }
   }
 }
-</script> 
+</script>
