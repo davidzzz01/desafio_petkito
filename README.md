@@ -55,7 +55,3 @@ Aplicação web Vue.js para gerenciamento de tarefas, usuários e logs de ativid
 - `DELETE /users/{id}` — Excluir usuário
 - `GET    /logs` — Listar logs de atividades (apenas admin)
 - `GET    /logs/pdf` — Exportar logs em PDF
-
----
-
-Feito com ♥ por [Seu Nome]. 
