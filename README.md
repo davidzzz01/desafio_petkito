@@ -30,8 +30,12 @@ Aplicação web Vue.js para gerenciamento de tarefas, usuários e logs de ativid
    ```
 3. Acesse [http://localhost:8080](http://localhost:8080)
 
-## Integração com a API
+## Integração com a API (Backend Laravel)
 - O frontend espera que a API Laravel esteja rodando em `http://127.0.0.1:8000/api`.
+- **Importante:** Após rodar as migrations no backend, execute também os seeders para criar usuários e tarefas de exemplo:
+  ```sh
+  php artisan db:seed
+  ```
 - O login gera um token JWT salvo no localStorage.
 - Para acessar rotas de admin, crie um usuário com `is_admin = true`.
 - O botão de exportar PDF funciona mesmo autenticado (usa blob).

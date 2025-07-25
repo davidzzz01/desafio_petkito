@@ -48,6 +48,7 @@ export default {
         this.due_date = ''
         this.error = ''
         this.$emit('task-added')
+        this.$emit('task-updated')
       } catch (e) {
         this.error = (e.response && e.response.data && e.response.data.message)
           ? e.response.data.message

@@ -52,8 +52,13 @@ export default {
     }
   },
   async mounted() {
-    const { data } = await api.get('/users')
-    this.users = data
+    try {
+      const response = await api.get('/users')
+      this.users = response.data.data || []
+    } catch (error) {
+      console.error('Erro ao buscar usuários:', error)
+      this.users = []
+    }
   },
   methods: {
     async addTask() {
