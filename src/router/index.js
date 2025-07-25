@@ -6,6 +6,7 @@ import UserCreate from '../pages/UserCreate.vue'
 import UserEdit from '../pages/UserEdit.vue'
 import UserList from '../pages/UserList.vue'
 import TaskCreate from '../pages/TaskCreate.vue'
+import Logs from '../pages/Logs.vue'
 
 const routes = [
   { path: '/', redirect: '/dashboard' },
@@ -15,6 +16,7 @@ const routes = [
   { path: '/users/create', component: UserCreate, meta: { requiresAuth: true, adminOnly: true } },
   { path: '/users/:id/edit', component: UserEdit, meta: { requiresAuth: true, adminOnly: true } },
   { path: '/tasks/create', component: TaskCreate, meta: { requiresAuth: true, adminOnly: true } },
+  { path: '/logs', component: Logs, meta: { requiresAuth: true, adminOnly: true } },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
 ]
 

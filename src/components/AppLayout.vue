@@ -1,5 +1,5 @@
 <template>
-  <div class="flex min-h-screen bg-gray-600">
+  <div class="flex min-h-screen bg-gray-100">
     <aside class="w-64 bg-blue-950 shadow-lg flex flex-col border-r border-blue-900">
       <div class="h-20 flex items-center justify-center border-b border-blue-900">
         <span class="text-2xl font-bold text-blue-200">ToDo Pro</span>
@@ -16,6 +16,9 @@
         </router-link>
         <router-link v-if="isAdmin" to="/users" class="flex items-center px-3 py-2 rounded hover:bg-blue-900 text-blue-200" active-class="bg-blue-900 font-bold">
           <i class="fas fa-users mr-2 text-blue-400"></i> Usuários
+        </router-link>
+        <router-link v-if="isAdmin" to="/logs" class="flex items-center px-3 py-2 rounded hover:bg-blue-900 text-blue-200" active-class="bg-blue-900 font-bold">
+          <i class="fas fa-history mr-2 text-blue-400"></i> Logs
         </router-link>
       </nav>
       <div class="p-4 border-t border-blue-900">
@@ -44,7 +47,7 @@
           </Modal>
         </div>
       </header>
-      <main class="flex-1 p-8 bg-gray-600">
+      <main class="flex-1 p-8 bg-gray-100">
         <slot />
       </main>
     </div>

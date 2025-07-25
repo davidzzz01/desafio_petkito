@@ -1,23 +1,23 @@
 <template>
   <AppLayout>
-    <div class="max-w-lg mx-auto bg-gray-800 p-8 rounded-lg shadow mt-8">
-      <h2 class="text-2xl font-bold mb-6 text-blue-200 text-center">Criar Usuário</h2>
+    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow mt-8">
+      <h2 class="text-2xl font-bold mb-6 text-blue-900 text-center">Criar Usuário</h2>
       <form @submit.prevent="createUser">
         <div class="mb-4">
-          <label class="block mb-1 text-blue-200 font-semibold">Nome</label>
-          <input v-model="name" class="w-full border border-blue-700 bg-gray-900 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+          <label class="block mb-1 text-blue-900 font-semibold">Nome</label>
+          <input v-model="name" class="w-full border border-blue-700 bg-gray-100 text-gray-800 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required />
         </div>
         <div class="mb-4">
-          <label class="block mb-1 text-blue-200 font-semibold">Email</label>
-          <input v-model="email" type="email" class="w-full border border-blue-700 bg-gray-900 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+          <label class="block mb-1 text-blue-900 font-semibold">Email</label>
+          <input v-model="email" type="email" class="w-full border border-blue-700 bg-gray-100 text-gray-800 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required />
         </div>
         <div class="mb-4">
-          <label class="block mb-1 text-blue-200 font-semibold">Senha</label>
-          <input v-model="password" type="password" class="w-full border border-blue-700 bg-gray-900 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+          <label class="block mb-1 text-blue-900 font-semibold">Senha</label>
+          <input v-model="password" type="password" class="w-full border border-blue-700 bg-gray-100 text-gray-800 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required />
         </div>
         <div class="mb-4">
-          <label class="block mb-1 text-blue-200 font-semibold">Tipo</label>
-          <select v-model="is_admin" class="w-full border border-blue-700 bg-gray-900 text-white px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+          <label class="block mb-1 text-blue-900 font-semibold">Tipo</label>
+          <select v-model="is_admin" class="w-full border border-blue-700 bg-gray-100 text-gray-800 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
             <option :value="false">Usuário</option>
             <option :value="true">Administrador</option>
           </select>
